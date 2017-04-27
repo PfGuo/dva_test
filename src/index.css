@@ -1,0 +1,9 @@
+
+html, body, :global(#root) {
+  height: 100%;
+  font-family: Microsoft YaHei, Arial, sans-serif;
+}
+
+span, a, :global(#root) {
+  font-family: Microsoft YaHei, Arial, sans-serif;
+}
