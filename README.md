@@ -13,6 +13,7 @@
     url: '/api/getcountrank',
 
     response: 
+    
             status: 0,
             msg: "success",
             data: [{
