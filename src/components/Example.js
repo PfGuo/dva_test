@@ -90,6 +90,22 @@ class Example extends Component {
         });
       }
 
+      function lastday() {
+        dispatch({
+          type: 'example/getDetailList',
+          stime: new Date(new Date().getTime() - 86400000),
+          etime: new Date()
+        });
+      }
+
+      function lastweek() {
+        dispatch({
+          type: 'example/getDetailList',
+          stime: new Date(new Date().getTime() - 604800000),
+          etime: new Date()
+        });
+      }
+
       return (
         <div className={styles.mainlayout}>
 
@@ -109,8 +125,8 @@ class Example extends Component {
             onChange={onChange}
             onOk={onOk}
           />
-          <Button className={styles.datebtn} type="dashed">Last Day</Button>
-          <Button className={styles.datebtn} type="dashed">Last Week</Button>
+          <Button className={styles.datebtn} type="dashed" onClick={lastday}>Last Day</Button>
+          <Button className={styles.datebtn} type="dashed" onClick={lastweek}>Last Week</Button>
           <Table loading={detaillistloading} className={styles.mainTable} dataSource={main_Data} columns={main_columns} pagination={false} />
         </div>
       );
