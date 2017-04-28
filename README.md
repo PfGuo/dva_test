@@ -55,7 +55,13 @@
 
 3. Table:
 
-    url: '/api/getdetaillist',
+    url: '/api/getdetaillist?stime=' + stime + '&etime=' + etime,
+
+    params: 
+
+        stime: start time, default just moment.
+
+        etime: end time, default last day.
     
     response: 
 

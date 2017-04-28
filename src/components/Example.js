@@ -82,13 +82,9 @@ class Example extends Component {
         key: 'attachment'
       }];
 
-      function onChange(value, dateString) {
-        console.log('Selected Time: ', value);
-        console.log('Formatted Selected Time: ', dateString);
-      }
+      function onChange(value, dateString) {}
 
       function onOk(value) {
-        console.log('onOk: ', value);
         dispatch({
           type: 'example/getDetailList',
           stime: parseInt(value[0]._d.getTime()/1000),
