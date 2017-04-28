@@ -34,14 +34,13 @@ class Example extends Component {
 
       const { countrankloading, sizerankloading, detaillistloading, countrank, sizerank, detaillist } = this.props.example;
 
-      /** 等有接口后放开，并删除下面临时文件。
       const count_data = countrankloading ? [] : countrank.data;
 
       const size_data = sizerankloading ? [] : sizerank.data;
 
       const main_Data = detaillistloading ? [] : detaillist.data;
-      */
 
+      /**
       const count_data = [{
             count_message: "aaa",
             count: "10"
@@ -87,7 +86,7 @@ class Example extends Component {
           msgsize: 300,
           attachment: "eee"
       }];
-      
+      */
 
       const count_columns = [{
         title: '',
