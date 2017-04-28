@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { DatePicker, Table, Button } from 'antd';
+import { DatePicker, Table, Button, Progress } from 'antd';
 import { connect } from 'dva';
 const { RangePicker } = DatePicker;
 
@@ -40,22 +40,26 @@ class Example extends Component {
       
 
       const count_columns = [{
-        title: 'Message',
+        title: 'Message Count Top 10',
         dataIndex: 'count_message',
         key: 'count_message'
       }, {
-        title: 'Count Top 10',
+        title: '',
         dataIndex: 'count',
-        key: 'count'
+        key: 'count',
+        width: '80%',
+        render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent*50/100}/${50}` } strokeWidth={5} />
       }];
       const size_columns = [{
-        title: 'Message',
+        title: 'Message Size Top 10',
         dataIndex: 'size_message',
         key: 'size_message'
       }, {
-        title: 'Size Top 10',
+        title: '',
         dataIndex: 'size',
-        key: 'size'
+        key: 'size',
+        width: '80%',
+        render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent*50/100}/${50}` } strokeWidth={5} />
       }];
 
       const main_columns = [{

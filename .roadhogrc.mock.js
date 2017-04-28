@@ -10,16 +10,16 @@ export default {
                     count: "10"
                 }, {
                     count_message: "bbb",
-                    count: "10"
+                    count: "20"
                 }, {
                     count_message: "ccc",
-                    count: "10"
+                    count: "30"
                 }, {
                     count_message: "ddd",
-                    count: "10"
+                    count: "40"
                 }, {
                     count_message: "eee",
-                    count: "10"
+                    count: "50"
                 }]
             });
         }, 500);
@@ -35,16 +35,16 @@ export default {
                     size: "10"
                 }, {
                     size_message: "bbb",
-                    size: "10"
+                    size: "40"
                 }, {
                     size_message: "ccc",
-                    size: "10"
+                    size: "60"
                 }, {
                     size_message: "ddd",
-                    size: "10"
+                    size: "80"
                 }, {
                     size_message: "eee",
-                    size: "10"
+                    size: "90"
                 }]
             });
         }, 500);
