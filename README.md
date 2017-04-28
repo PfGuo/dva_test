@@ -62,6 +62,8 @@
         stime: start time, default just moment.
 
         etime: end time, default last day.
+
+    url: '/api/getdetaillist',
     
     response: 
 
