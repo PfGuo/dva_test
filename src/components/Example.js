@@ -22,7 +22,9 @@ class Example extends Component {
       });
 
       dispatch({
-        type: 'example/getDetailList'
+        type: 'example/getDetailList',
+        stime: parseInt(new Date(new Date().getTime() - 86400000)/1000),
+        etime: parseInt(new Date().getTime()/1000)
       });
     }
 
@@ -89,24 +91,24 @@ class Example extends Component {
         console.log('onOk: ', value);
         dispatch({
           type: 'example/getDetailList',
-          stime: value[0]._d,
-          etime: value[1]._d
+          stime: parseInt(value[0]._d.getTime()/1000),
+          etime: parseInt(value[1]._d.getTime()/1000)
         });
       }
 
       function lastday() {
         dispatch({
           type: 'example/getDetailList',
-          stime: new Date(new Date().getTime() - 86400000),
-          etime: new Date()
+          stime: parseInt(new Date(new Date().getTime() - 86400000)/1000),
+          etime: parseInt(new Date().getTime()/1000)
         });
       }
 
       function lastweek() {
         dispatch({
           type: 'example/getDetailList',
-          stime: new Date(new Date().getTime() - 604800000),
-          etime: new Date()
+          stime: parseInt(new Date(new Date().getTime() - 604800000)/1000),
+          etime: parseInt(new Date().getTime()/1000)
         });
       }
 

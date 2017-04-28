@@ -26,8 +26,8 @@ export default {
       yield put({ type: 'querysizerank', payload: data.data });
     },
 
-    *getDetailList({ action, payload }, { call, put }) {  // eslint-disable-line
-      const data = yield call(service.querydetaillist);
+    *getDetailList({ stime, etime, payload }, { call, put }) {  // eslint-disable-line
+      const data = yield call(service.querydetaillist, stime, etime);
       yield put({ type: 'querydetaillist', payload: data.data });
     },
   },
