@@ -42,26 +42,26 @@ class Example extends Component {
       
 
       const count_columns = [{
-        title: 'Message Count Top 10',
+        title: '',
         dataIndex: 'count_message',
         key: 'count_message'
       }, {
-        title: '',
+        title: 'Message Count Top 10',
         dataIndex: 'count',
         key: 'count',
-        width: '80%',
-        render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent*50/100}/${50}` } strokeWidth={5} />
+        width: '90%',
+        render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent}` } strokeWidth={5} />
       }];
       const size_columns = [{
-        title: 'Message Size Top 10',
+        title: '',
         dataIndex: 'size_message',
         key: 'size_message'
       }, {
-        title: '',
+        title: 'Message Size Top 10',
         dataIndex: 'size',
         key: 'size',
-        width: '80%',
-        render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent*50/100}/${50}` } strokeWidth={5} />
+        width: '90%',
+        render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent}` } strokeWidth={5} />
       }];
 
       const main_columns = [{
@@ -112,15 +112,15 @@ class Example extends Component {
         <div className={styles.mainlayout}>
 
           <div className={styles.leftside}>
-            <Table loading={countrankloading} dataSource={count_data} columns={count_columns} pagination={false} />
+            <Table className={styles.lefttable} loading={countrankloading} dataSource={count_data} columns={count_columns} pagination={false} />
           </div>
 
           <div className={styles.rightside}>
-            <Table loading={sizerankloading} dataSource={size_data} columns={size_columns} pagination={false} />
+            <Table className={styles.righttable} loading={sizerankloading} dataSource={size_data} columns={size_columns} pagination={false} />
           </div>
 
           <RangePicker
-            style={{marginTop: "10px"}}
+            style={{marginTop: "20px"}}
             showTime
             format="YYYY-MM-DD HH:mm:ss"
             placeholder={['开始时间', '结束时间']}
