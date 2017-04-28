@@ -34,11 +34,59 @@ class Example extends Component {
 
       const { countrankloading, sizerankloading, detaillistloading, countrank, sizerank, detaillist } = this.props.example;
 
+      /** 等有接口后放开，并删除下面临时文件。
       const count_data = countrankloading ? [] : countrank.data;
 
       const size_data = sizerankloading ? [] : sizerank.data;
 
       const main_Data = detaillistloading ? [] : detaillist.data;
+      */
+
+      const count_data = [{
+            count_message: "aaa",
+            count: "10"
+        }, {
+            count_message: "bbb",
+            count: "20"
+        }, {
+            count_message: "ccc",
+            count: "30"
+        }, {
+            count_message: "ddd",
+            count: "40"
+        }, {
+            count_message: "eee",
+            count: "50"
+        }];
+
+      const size_data = [{
+          size_message: "aaa",
+          size: "10"
+      }, {
+          size_message: "bbb",
+          size: "40"
+      }, {
+          size_message: "ccc",
+          size: "60"
+      }, {
+          size_message: "ddd",
+          size: "80"
+      }, {
+          size_message: "eee",
+          size: "90"
+      }];
+
+      const main_Data = [{
+          domainname: 'xxx',
+          msgcount: 50,
+          msgsize: 100,
+          attachment: "yyyy"
+      }, {
+          domainname: 'zzz',
+          msgcount: 50,
+          msgsize: 300,
+          attachment: "eee"
+      }];
       
 
       const count_columns = [{
@@ -49,7 +97,7 @@ class Example extends Component {
         title: 'Message Count Top 10',
         dataIndex: 'count',
         key: 'count',
-        width: '90%',
+        width: '88%',
         render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent}` } strokeWidth={5} />
       }];
       const size_columns = [{
@@ -60,7 +108,7 @@ class Example extends Component {
         title: 'Message Size Top 10',
         dataIndex: 'size',
         key: 'size',
-        width: '90%',
+        width: '88%',
         render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent}` } strokeWidth={5} />
       }];
 
