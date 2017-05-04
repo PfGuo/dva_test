@@ -16,13 +16,13 @@ export default {
   },
 
   effects: {
-    *getCountRank({ payload }, { call, put }) {  // eslint-disable-line
-      const data = yield call(service.querycountrank);
+    *getCountRank({ stime, etime, payload }, { call, put }) {  // eslint-disable-line
+      const data = yield call(service.querycountrank, stime, etime);
       yield put({ type: 'getcountrank', payload: data.data });
     },
 
-    *querySizeRank({ payload }, { call, put }) {  // eslint-disable-line
-      const data = yield call(service.querysizerank);
+    *querySizeRank({ stime, etime, payload }, { call, put }) {  // eslint-disable-line
+      const data = yield call(service.querysizerank, stime, etime);
       yield put({ type: 'querysizerank', payload: data.data });
     },
 

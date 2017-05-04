@@ -21,12 +21,16 @@ Date.prototype.Format = function (fmt) { //author: meizz
     return fmt;  
 }  
 
-export async function querycountrank() {
-  return request('/api/top/'+TOPNUM+'?t=c');
+export async function querycountrank(stime, etime) {
+  let st = getLocalTime(stime);
+  let et = getLocalTime(etime);
+  return request('/api/top/'+TOPNUM+'?t=c&sday=' + st + '&eday=' + et);
 }
 
-export async function querysizerank() {
-  return request('/api/top/'+TOPNUM+'?t=s');
+export async function querysizerank(stime, etime) {
+  let st = getLocalTime(stime);
+  let et = getLocalTime(etime);
+  return request('/api/top/'+TOPNUM+'?t=s&sday=' + st + '&eday=' + et);
 }
 
 export async function querydetaillist(stime, etime) {

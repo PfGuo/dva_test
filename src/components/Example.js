@@ -14,11 +14,15 @@ class Example extends Component {
       const { dispatch } = this.props;
 
       dispatch({
-        type: 'example/getCountRank'
+        type: 'example/getCountRank',
+        stime: parseInt(new Date(new Date().getTime() - 86400000)/1000),
+        etime: parseInt(new Date().getTime()/1000)
       });
 
       dispatch({
-        type: 'example/querySizeRank'
+        type: 'example/querySizeRank',
+        stime: parseInt(new Date(new Date().getTime() - 86400000)/1000),
+        etime: parseInt(new Date().getTime()/1000)
       });
 
       dispatch({
@@ -40,39 +44,39 @@ class Example extends Component {
 
       const main_Data = detaillistloading ? [] : detaillist.data;
 
-      /**
+/** 
       const count_data = [{
-            count_message: "aaa",
-            count: "10"
+            uid: "aaa",
+            msgcount: "10"
         }, {
-            count_message: "bbb",
-            count: "20"
+            uid: "bbb",
+            msgcount: "20"
         }, {
-            count_message: "ccc",
-            count: "30"
+            uid: "ccc",
+            msgcount: "30"
         }, {
-            count_message: "ddd",
-            count: "40"
+            uid: "ddd",
+            msgcount: "40"
         }, {
-            count_message: "eee",
-            count: "50"
+            uid: "eee",
+            msgcount: "50"
         }];
 
       const size_data = [{
-          size_message: "aaa",
-          size: "10"
+          uid: "aaa",
+          msgsize: "10"
       }, {
-          size_message: "bbb",
-          size: "40"
+          uid: "bbb",
+          msgsize: "40"
       }, {
-          size_message: "ccc",
-          size: "60"
+          uid: "ccc",
+          msgsize: "60"
       }, {
-          size_message: "ddd",
-          size: "80"
+          uid: "ddd",
+          msgsize: "80"
       }, {
-          size_message: "eee",
-          size: "90"
+          uid: "eee",
+          msgsize: "90"
       }];
 
       const main_Data = [{
@@ -86,7 +90,7 @@ class Example extends Component {
           msgsize: 300,
           attachment: "eee"
       }];
-      */
+*/
 
       const count_columns = [{
         title: '',
@@ -137,11 +141,35 @@ class Example extends Component {
           stime: parseInt(value[0]._d.getTime()/1000),
           etime: parseInt(value[1]._d.getTime()/1000)
         });
+
+        dispatch({
+          type: 'example/getCountRank',
+          stime: parseInt(value[0]._d.getTime()/1000),
+          etime: parseInt(value[1]._d.getTime()/1000)
+        });
+
+        dispatch({
+          type: 'example/querySizeRank',
+          stime: parseInt(value[0]._d.getTime()/1000),
+          etime: parseInt(value[1]._d.getTime()/1000)
+        });
       }
 
       function lastday() {
         dispatch({
           type: 'example/getDetailList',
+          stime: parseInt(new Date(new Date().getTime() - 86400000)/1000),
+          etime: parseInt(new Date().getTime()/1000)
+        });
+
+        dispatch({
+          type: 'example/getCountRank',
+          stime: parseInt(new Date(new Date().getTime() - 86400000)/1000),
+          etime: parseInt(new Date().getTime()/1000)
+        });
+
+        dispatch({
+          type: 'example/querySizeRank',
           stime: parseInt(new Date(new Date().getTime() - 86400000)/1000),
           etime: parseInt(new Date().getTime()/1000)
         });
@@ -153,30 +181,48 @@ class Example extends Component {
           stime: parseInt(new Date(new Date().getTime() - 604800000)/1000),
           etime: parseInt(new Date().getTime()/1000)
         });
+
+        dispatch({
+          type: 'example/getCountRank',
+          stime: parseInt(new Date(new Date().getTime() - 604800000)/1000),
+          etime: parseInt(new Date().getTime()/1000)
+        });
+
+        dispatch({
+          type: 'example/querySizeRank',
+          stime: parseInt(new Date(new Date().getTime() - 604800000)/1000),
+          etime: parseInt(new Date().getTime()/1000)
+        });
       }
 
       return (
         <div className={styles.mainlayout}>
 
-          <div className={styles.leftside}>
+          <div className={styles.top}>
+
+            <RangePicker
+              style={{marginTop: "20px"}}
+              showTime
+              format="YYYY-MM-DD HH:mm:ss"
+              placeholder={['开始时间', '结束时间']}
+              onChange={onChange}
+              onOk={onOk}
+            />
+            <Button className={styles.datebtn} type="dashed" onClick={lastday}>Last Day</Button>
+            <Button className={styles.datebtn} type="dashed" onClick={lastweek}>Last Week</Button>
+          </div>
+
+          <div className={styles.midleftside}>
             <Table className={styles.lefttable} loading={countrankloading} dataSource={count_data} columns={count_columns} pagination={false} />
           </div>
 
-          <div className={styles.rightside}>
+          <div className={styles.midrightside}>
             <Table className={styles.righttable} loading={sizerankloading} dataSource={size_data} columns={size_columns} pagination={false} />
           </div>
 
-          <RangePicker
-            style={{marginTop: "20px"}}
-            showTime
-            format="YYYY-MM-DD HH:mm:ss"
-            placeholder={['开始时间', '结束时间']}
-            onChange={onChange}
-            onOk={onOk}
-          />
-          <Button className={styles.datebtn} type="dashed" onClick={lastday}>Last Day</Button>
-          <Button className={styles.datebtn} type="dashed" onClick={lastweek}>Last Week</Button>
-          <Table loading={detaillistloading} className={styles.mainTable} dataSource={main_Data} columns={main_columns} pagination={false} />
+          <div className={styles.bottom}>
+            <Table loading={detaillistloading} className={styles.mainTable} dataSource={main_Data} columns={main_columns} pagination={false} />
+          </div>
         </div>
       );
     }
