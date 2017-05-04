@@ -8,63 +8,52 @@
 
 #API
 
-1. Count top 10:
+1. Top 10 sender by sendCount:
 
-    url: '/api/getcountrank',
+    url: '/api/top/<int:top_num>?t=c',
 
     response: 
     
             status: 0,
             msg: "success",
             data: [{
-                domainname: 'xxx',
+                uid: 'foo',
                 msgcount: 50,
-                msgsize: 100,
-                attachment: "yyyy"
+                msgsize: 100
             }, {
-                domainname: 'zzz',
+                uid: 'foo',
                 msgcount: 50,
-                msgsize: 300,
-                attachment: "eee"
+                msgsize: 100
             }]
 
-2. Size top 10:
+2. Top 10 sender by sendSize:
 
-    url: '/api/getsizerank',
+    url: '/api/top/<int:top_num>?t=s',
 
     response: 
 
             status: 0,
             msg: "success",
             data: [{
-                size_message: "aaa",
-                size: "10"
+                uid: 'foo',
+                msgcount: 50,
+                msgsize: 100
             }, {
-                size_message: "bbb",
-                size: "10"
-            }, {
-                size_message: "ccc",
-                size: "10"
-            }, {
-                size_message: "ddd",
-                size: "10"
-            }, {
-                size_message: "eee",
-                size: "10"
+                uid: 'bar',
+                msgcount: 20,
+                msgsize: 20
             }]
 
-3. Table:
+3. List by domain:
 
-    url: '/api/getdetaillist?stime=' + stime + '&etime=' + etime,
+	GET /api/stat?sday=20170201&eday=20170304&limit=10
 
     params: 
 
-        stime: start time, default just moment.
+        sday: start time, default just moment.
 
-        etime: end time, default last day.
+        eday: end time, default last day.
 
-    url: '/api/getdetaillist',
-    
     response: 
 
             status: 0,
@@ -72,11 +61,9 @@
             data: [{
                 domainname: 'xxx',
                 msgcount: 50,
-                msgsize: 100,
-                attachment: "yyyy"
+                msgsize: 100
             }, {
                 domainname: 'zzz',
                 msgcount: 50,
-                msgsize: 300,
-                attachment: "eee"
+                msgsize: 300
             }]
