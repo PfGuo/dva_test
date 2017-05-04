@@ -130,19 +130,23 @@ class Example extends Component {
       const main_columns = [{
         title: 'Domain Name',
         dataIndex: 'domain_name',
-        key: 'domain_name'
+        key: 'domain_name',
+        width: '20%'
       }, {
         title: 'Message Count',
         dataIndex: 'msgcount',
-        key: 'msgcount'
+        key: 'msgcount',
+        width: '10%'
       }, {
         title: 'Message Size',
         dataIndex: 'msgsize',
-        key: 'msgsize'
+        key: 'msgsize',
+        width: '20%'
       }, {
         title: 'Attachment',
         dataIndex: 'attachment',
-        key: 'attachment'
+        key: 'attachment',
+        width: '50%'
       }];
 
       function onChange(value, dateString) {}
