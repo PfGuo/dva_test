@@ -90,23 +90,23 @@ class Example extends Component {
 
       const count_columns = [{
         title: '',
-        dataIndex: 'count_message',
-        key: 'count_message'
+        dataIndex: 'uid',
+        key: 'uid'
       }, {
         title: 'Message Count Top 10',
-        dataIndex: 'count',
-        key: 'count',
+        dataIndex: 'msgcount',
+        key: 'msgcount',
         width: '88%',
         render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent}` } strokeWidth={5} />
       }];
       const size_columns = [{
         title: '',
-        dataIndex: 'size_message',
-        key: 'size_message'
+        dataIndex: 'uid',
+        key: 'uid'
       }, {
         title: 'Message Size Top 10',
-        dataIndex: 'size',
-        key: 'size',
+        dataIndex: 'msgsize',
+        key: 'msgsize',
         width: '88%',
         render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent}` } strokeWidth={5} />
       }];

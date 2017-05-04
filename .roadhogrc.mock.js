@@ -1,56 +1,42 @@
 
 export default {
-    '/api/getcountrank': function(req, res) {
+    '/api/top/:TOPNUM': function(req, res) {
         setTimeout(function() {
             res.json({
                 status: 0,
                 msg: "success",
                 data: [{
-                    count_message: "aaa",
-                    count: "10"
+                    uid: 'foo',
+                    msgcount: 50,
+                    msgsize: 100
                 }, {
-                    count_message: "bbb",
-                    count: "20"
-                }, {
-                    count_message: "ccc",
-                    count: "30"
-                }, {
-                    count_message: "ddd",
-                    count: "40"
-                }, {
-                    count_message: "eee",
-                    count: "50"
+                    uid: 'foo',
+                    msgcount: 50,
+                    msgsize: 100
                 }]
             });
         }, 500);
     },
 
-    '/api/getsizerank': function(req, res) {
+    '/api/top/:TOPNUM': function(req, res) {
         setTimeout(function() {
             res.json({
                 status: 0,
                 msg: "success",
                 data: [{
-                    size_message: "aaa",
-                    size: "10"
+                    uid: 'foo',
+                    msgcount: 50,
+                    msgsize: 100
                 }, {
-                    size_message: "bbb",
-                    size: "40"
-                }, {
-                    size_message: "ccc",
-                    size: "60"
-                }, {
-                    size_message: "ddd",
-                    size: "80"
-                }, {
-                    size_message: "eee",
-                    size: "90"
+                    uid: 'bar',
+                    msgcount: 20,
+                    msgsize: 20
                 }]
             });
         }, 500);
     },
 
-    '/api/getdetaillist': function(req, res) {
+    '/api/stat': function(req, res) {
         setTimeout(function() {
             res.json({
                 status: 0,
@@ -58,13 +44,11 @@ export default {
                 data: [{
                     domainname: 'xxx',
                     msgcount: 50,
-                    msgsize: 100,
-                    attachment: "yyyy"
+                    msgsize: 100
                 }, {
                     domainname: 'zzz',
                     msgcount: 50,
-                    msgsize: 300,
-                    attachment: "eee"
+                    msgsize: 300
                 }]
             });
         }, 500);
