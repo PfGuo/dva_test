@@ -44,6 +44,18 @@ class Example extends Component {
 
       const main_Data = detaillistloading ? [] : detaillist.data;
 
+      function select_max (group, key) {
+        let temp = 0;
+        group.map(function(item) {
+          temp = item[key] > temp ? item[key] : temp;
+        });
+        return temp+100;
+      }
+
+      const max_count_data = select_max(count_data, 'msgcount');
+
+      const max_size_data = select_max(size_data, 'msgsize');
+
 /** 
       const count_data = [{
             uid: "aaa",
@@ -100,8 +112,8 @@ class Example extends Component {
         title: 'Message Count Top 10',
         dataIndex: 'msgcount',
         key: 'msgcount',
-        width: '88%',
-        render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent}` } strokeWidth={5} />
+        width: '70%',
+        render: (text, record, index) => <Progress percent={ (text/max_count_data)*100 } format={percent => parseInt(text) } strokeWidth={5} />
       }];
       const size_columns = [{
         title: '',
@@ -111,14 +123,14 @@ class Example extends Component {
         title: 'Message Size Top 10',
         dataIndex: 'msgsize',
         key: 'msgsize',
-        width: '88%',
-        render: (text, record, index) => <Progress percent={ parseInt(text) } format={percent => `${percent}` } strokeWidth={5} />
+        width: '70%',
+        render: (text, record, index) => <Progress percent={ (text/max_size_data)*100 } format={percent => parseInt(text) } strokeWidth={5} />
       }];
 
       const main_columns = [{
         title: 'Domain Name',
-        dataIndex: 'domainname',
-        key: 'domainname'
+        dataIndex: 'domain_name',
+        key: 'domain_name'
       }, {
         title: 'Message Count',
         dataIndex: 'msgcount',
