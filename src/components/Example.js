@@ -38,11 +38,11 @@ class Example extends Component {
 
       const { countrankloading, sizerankloading, detaillistloading, countrank, sizerank, detaillist } = this.props.example;
 
-      const count_data = countrankloading ? [] : countrank.data;
+      const count_data = countrankloading ? [] : countrank ? countrank.data : [];
 
-      const size_data = sizerankloading ? [] : sizerank.data;
+      const size_data = sizerankloading ? [] : sizerank ? sizerank.data : [];
 
-      const main_Data = detaillistloading ? [] : detaillist.data;
+      const main_Data = detaillistloading ? [] : detaillist ? detaillist.data : [];
 
       function select_max (group, key) {
         let temp = 0;
@@ -146,7 +146,12 @@ class Example extends Component {
         title: 'Attachment',
         dataIndex: 'attachment',
         key: 'attachment',
-        width: '50%'
+        width: '20%'
+      }, {
+        title: 'Message Count',
+        dataIndex: '',
+        key: '',
+        width: '30%'
       }];
 
       function onChange(value, dateString) {}

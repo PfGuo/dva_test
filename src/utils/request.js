@@ -1,5 +1,7 @@
 import fetch from 'dva/fetch';
 
+import { message } from 'antd';
+
 function parseJSON(response) {
   return response.json();
 }
@@ -7,6 +9,8 @@ function parseJSON(response) {
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
+  } else if (response.status > 300) {
+    message.error("Status is " + response.status);
   }
 
   const error = new Error(response.statusText);

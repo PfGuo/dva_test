@@ -4,10 +4,12 @@
     width: 100%;
     height: 100%;
     position: relative;
+    font-family: "Microsoft YaHei" !important;
 }
 
 .top {
     position: absolute;
+    font-family: "Microsoft YaHei" !important;
 }
 
 .midleftside {
@@ -15,6 +17,7 @@
     margin-top: 70px;
     padding-right: 10px;
     width: 25%;
+    font-family: "Microsoft YaHei" !important;
 }
 
 .midrightside {
@@ -22,27 +25,33 @@
     margin-top: 70px;
     padding-left: 20px;
     width: 75%;
+    font-family: "Microsoft YaHei" !important;
 }
 
 .bottom {
     width: 100%;
     float: left;
+    font-family: "Microsoft YaHei" !important;
 }
 
 .datebtn {
     margin-Left: 15px;
+    font-family: "Microsoft YaHei" !important;
 }
 
 .mainTable {
     margin-top: 20px;
+    font-family: "Microsoft YaHei" !important;
 }
 
 .lefttable {
     width: 100%;
     float: left;
+    font-family: "Microsoft YaHei" !important;
 }
 
 .righttable {
     width: 33%;
     float: left;
+    font-family: "Microsoft YaHei" !important;
 }
