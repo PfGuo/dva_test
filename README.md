@@ -1,12 +1,12 @@
 # dva_test
 
-#Envirment
+# Envirment
 
 1. npm install
 
 2. npm start
 
-#API
+# API
 
 1. Top 10 sender by sendCount:
 
